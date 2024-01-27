@@ -12,7 +12,7 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#916b96";
+static const char col_cyan[]        = "#005577";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -23,7 +23,7 @@ static const char *voldown[] = { "amixer", "set", "Master", "5%-", NULL };
 static const char *volmute[] = { "amixer", "set", "Master", "toggle", NULL };
 
 /* tagging */
-static const char *tags[] = { " ", "󰨞 ", " ", " ", " ","󱐡 ", " ", " ", "󰊗 " };
+static const char *tags[] = { "1", "2", "3", "4", "5","6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -65,6 +65,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", "-e", "btop", NULL };
+static const char *flamcmd[] = {"flameshot", "gui", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -72,6 +73,7 @@ static const Key keys[] = {
         { 0,             XF86XK_AudioLowerVolume,  spawn,      {.v = voldown } },
         { 0,             XF86XK_AudioMute,         spawn,      {.v = volmute } },
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_s,      spawn,          {.v = flamcmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
